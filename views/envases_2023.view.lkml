@@ -10,10 +10,10 @@ view: envases_2023 {
             ,SOLD_TO
 
       ,sum(BILL_QTY) BILL_QTY
-      ,sum(znetval) znetval from `envases-analytics-eon-poc.ENVASES_REPORTING.rpt_ventas`
+      ,sum(znetval) znetval from `eon-internal-bigquery.DATASET_RAW_ENVASES.rpt_ventas`
       GROUP BY 1,2,3,4,5,6,7) sl
       left join (
-      select CATEGORY,calday ,distr_chan,SALESORG,SOLD_TO,sum(BILL_QTY) BILL_QTY,sum(znetval) znetval from `envases-analytics-eon-poc.ENVASES_REPORTING.rpt_ventas`GROUP BY 1,2,3,4,5
+      select CATEGORY,calday ,distr_chan,SALESORG,SOLD_TO,sum(BILL_QTY) BILL_QTY,sum(znetval) znetval from `eon-internal-bigquery.DATASET_RAW_ENVASES.rpt_ventas`GROUP BY 1,2,3,4,5
       ) sy on sl.fecha2=sy.calday and sl.distr_chan=sy.distr_chan  and sy.CATEGORY=sl.Categoria and sy.SALESORG=sl.SALESORG and sy.SOLD_TO=sl.SOLD_TO
 
       ;;
