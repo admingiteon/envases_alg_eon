@@ -1,4 +1,4 @@
-- dashboard: envases_mtd
+- dashboard: envases
   title: Envases MTD
   layout: newspaper
   preferred_viewer: dashboards-next
