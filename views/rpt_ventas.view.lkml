@@ -60,7 +60,7 @@ FROM
             TRIM(FCURR) FCURR, TRIM(TCURR) TCURR,
             CASE WHEN UKURS < 0 then 1 / (UKURS * -1) ELSE UKURS END UKURS, c.date
         FROM
-            envases-analytics-eon-poc.DATASET_RAW.ECC_PROD_TCURR left join
+            eon-internal-bigquery.DATASET_RAW_ENVASES.ECC_PROD_TCURR left join
             eon-internal-bigquery.DATASET_RAW_ENVASES.CALENDAR c on c.CALDAY=CAST(99999999 - CAST(GDATU AS NUMERIC) AS STRING)
         WHERE
             TRIM(FCURR) IN ('USD', 'EUR', 'DKK', 'GTQ', 'CAD') AND
@@ -95,7 +95,7 @@ FROM
             TRIM(FCURR) FCURR, TRIM(TCURR) TCURR,
             CASE WHEN UKURS < 0 then 1 / (UKURS * -1) ELSE UKURS END UKURS, c.date
         FROM
-            envases-analytics-eon-poc.DATASET_RAW.ECC_PROD_TCURR left join
+            eon-internal-bigquery.DATASET_RAW_ENVASES.ECC_PROD_TCURR left join
             eon-internal-bigquery.DATASET_RAW_ENVASES.CALENDAR c on c.CALDAY=CAST(99999999 - CAST(GDATU AS NUMERIC) AS STRING)
         WHERE
             TRIM(FCURR) IN ('MXN', 'EUR', 'DKK', 'GTQ', 'CAD') AND
@@ -129,7 +129,7 @@ FROM
             TRIM(FCURR) FCURR, TRIM(TCURR) TCURR,
             CASE WHEN UKURS < 0 then 1 / (UKURS * -1) ELSE UKURS END UKURS, c.date
         FROM
-            envases-analytics-eon-poc.DATASET_RAW.ECC_PROD_TCURR left join
+            eon-internal-bigquery.DATASET_RAW_ENVASES.ECC_PROD_TCURR left join
             eon-internal-bigquery.DATASET_RAW_ENVASES.CALENDAR c on c.CALDAY=CAST(99999999 - CAST(GDATU AS NUMERIC) AS STRING)
         WHERE
             TRIM(FCURR) IN ('MXN', 'EUR', 'DKK', 'GTQ', 'CAD') AND
@@ -163,7 +163,7 @@ FROM
             TRIM(FCURR) FCURR, TRIM(TCURR) TCURR,
             CASE WHEN UKURS < 0 then 1 / (UKURS * -1) ELSE UKURS END UKURS, c.date
         FROM
-            envases-analytics-eon-poc.DATASET_RAW.ECC_PROD_TCURR left join
+            eon-internal-bigquery.DATASET_RAW_ENVASES.ECC_PROD_TCURR left join
             eon-internal-bigquery.DATASET_RAW_ENVASES.CALENDAR c on c.CALDAY=CAST(99999999 - CAST(GDATU AS NUMERIC) AS STRING)
         WHERE
             TRIM(FCURR) IN ('MXN', 'USD', 'DKK', 'GTQ', 'CAD') AND
