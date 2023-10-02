@@ -107,6 +107,12 @@ view: rpt_alg {
     sql: ${TABLE}.CLIENT ;;
   }
 
+  dimension: Material_Group {
+    label: "Grupo Material"
+    type: string
+    sql: ${TABLE}.MATL_GROUP ;;
+  }
+
   dimension: category {
     type: string
     # sql: case when ${TABLE}.CATEGORY is null then 'Otros' else ${TABLE}.CATEGORY  end ;;
@@ -120,6 +126,11 @@ view: rpt_alg {
       {% else %}
       <p style="">{{ rendered_value }}</p>
       {% endif %} ;;
+
+    link: {
+      label: "Grupo Material"
+      url: "https://grupoeon.cloud.looker.com/dashboards/100"
+    }
 
   }
 
