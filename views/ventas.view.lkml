@@ -12,7 +12,7 @@ view: ventas {
         1001 AS CLIENTE,
         80 AS VENTA,
         2 AS CANTIDAD
-    FROM envases-analytics-eon-poc.ENVASES_REPORTING.CALENDAR
+    FROM eon-internal-bigquery.DATASET_RAW_ENVASES.CALENDAR
     GROUP BY 1,
         2,
         3,

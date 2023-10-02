@@ -1,9 +1,9 @@
 - dashboard: envases_mtd
-  title: Envases MTD
+  title: ENVASES MTD
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: e57utodOY947Mjy9rM2Z3N
+  preferred_slug: e5e7dxGlPECKvPuy6LIPkY
   elements:
   - name: ''
     type: text
@@ -170,7 +170,7 @@
     fields: [rpt_ventas.stat_curr, rpt_ventas.UKURS]
     filters:
       rpt_ventas.UKURS: ">0"
-      rpt_ventas.category: "-TOTAL USD"
+      rpt_ventas.category: TOTAL MXN
     sorts: [rpt_ventas.UKURS]
     limit: 500
     column_limit: 50
@@ -236,7 +236,7 @@
     row: 0
     col: 0
     width: 6
-    height: 6
+    height: 7
   - title: México
     name: México
     model: envases-alg
@@ -250,6 +250,7 @@
       rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
     filters:
       rpt_ventas.Paises: México
+      rpt_ventas.category: "-SUB America,-TOTAL USD"
     sorts: [rpt_ventas.category_orden]
     limit: 500
     column_limit: 50
@@ -344,10 +345,10 @@
       rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
     listen:
       Período: rpt_ventas.date_filter
-    row: 6
+    row: 8
     col: 0
     width: 24
-    height: 15
+    height: 14
   - title: MTD México
     name: MTD México
     model: envases-alg
@@ -357,6 +358,7 @@
       rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
     filters:
       rpt_ventas.Paises: México
+      rpt_ventas.category: "-TOTAL USD,-SUB America"
     sorts: [rpt_ventas.category_orden]
     limit: 500
     column_limit: 50
@@ -424,7 +426,7 @@
       rpt_ventas.category: left
     listen:
       Período: rpt_ventas.date_filter
-    row: 21
+    row: 22
     col: 0
     width: 12
     height: 9
@@ -437,6 +439,7 @@
       rpt_ventas.z_BUD_EXPORT_AMOUNT, rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
     filters:
       rpt_ventas.Paises: México
+      rpt_ventas.category: "-TOTAL USD,-SUB America"
     sorts: [rpt_ventas.category_orden]
     limit: 500
     column_limit: 50
@@ -504,174 +507,10 @@
       rpt_ventas.category: left
     listen:
       Período: rpt_ventas.date_filter
-    row: 21
+    row: 22
     col: 12
     width: 12
     height: 9
-  - title: MTD USA
-    name: MTD USA
-    model: envases-alg
-    explore: rpt_ventas
-    type: looker_grid
-    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
-      rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
-    filters:
-      rpt_ventas.Paises: USA
-      rpt_ventas.stat_curr: MXN,USD
-      rpt_ventas.category: "-TOTAL USD"
-    sorts: [rpt_ventas.category_orden]
-    limit: 500
-    column_limit: 50
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: false
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: '9'
-    rows_font_size: '9'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    column_order: [rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
-      rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    header_font_color: "#FFF"
-    header_background_color: "#5e2129"
-    custom_color_enabled: true
-    custom_color: "#5e2129"
-    show_single_value_title: true
-    single_value_title: Información act. hasta
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [rpt_ventas.category_orden]
-    hidden_pivots: {}
-    pinned_columns:
-      rpt_ventas.category: left
-    listen:
-      Período: rpt_ventas.date_filter
-    row: 34
-    col: 0
-    width: 12
-    height: 3
-  - title: BUDGET MTD USA
-    name: BUDGET MTD USA
-    model: envases-alg
-    explore: rpt_ventas
-    type: looker_grid
-    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT,
-      rpt_ventas.z_BUD_EXPORT_AMOUNT, rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
-    filters:
-      rpt_ventas.Paises: USA
-      rpt_ventas.stat_curr: USD,MXN
-      rpt_ventas.category: "-TOTAL USD"
-    sorts: [rpt_ventas.category_orden]
-    limit: 500
-    column_limit: 50
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: false
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: '9'
-    rows_font_size: '9'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    column_order: [rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT, rpt_ventas.z_BUD_EXPORT_AMOUNT,
-      rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    header_font_color: "#FFF"
-    header_background_color: "#5e2129"
-    custom_color_enabled: true
-    custom_color: "#5e2129"
-    show_single_value_title: true
-    single_value_title: Información act. hasta
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [rpt_ventas.category_orden]
-    hidden_pivots: {}
-    pinned_columns:
-      rpt_ventas.category: left
-    listen:
-      Período: rpt_ventas.date_filter
-    row: 34
-    col: 12
-    width: 12
-    height: 3
   - title: USA
     name: USA
     model: envases-alg
@@ -686,7 +525,7 @@
     filters:
       rpt_ventas.Paises: USA
       rpt_ventas.stat_curr: MXN,USD
-      rpt_ventas.category: "-TOTAL USD"
+      rpt_ventas.category: "-TOTAL USD,-SUB America"
     sorts: [rpt_ventas.category_orden]
     limit: 500
     column_limit: 50
@@ -781,104 +620,22 @@
       rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
     listen:
       Período: rpt_ventas.date_filter
-    row: 30
+    row: 31
     col: 0
     width: 24
-    height: 4
-  - title: BUDGET MTD Dinamarca
-    name: BUDGET MTD Dinamarca
+    height: 5
+  - title: MTD USA
+    name: MTD USA
     model: envases-alg
     explore: rpt_ventas
     type: looker_grid
-    fields: [rpt_ventas.category_orden_dinamarca, rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT,
-      rpt_ventas.z_BUD_EXPORT_AMOUNT, rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
-    filters:
-      rpt_ventas.Paises: Dinamarca
-      rpt_ventas.stat_curr: MXN,DKK
-      rpt_ventas.category: "-TOTAL USD"
-    sorts: [rpt_ventas.category_orden_dinamarca]
-    limit: 500
-    column_limit: 50
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: false
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: '9'
-    rows_font_size: '9'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    column_order: [rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT, rpt_ventas.z_BUD_EXPORT_AMOUNT,
-      rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    header_font_color: "#FFF"
-    header_background_color: "#5e2129"
-    custom_color_enabled: true
-    custom_color: "#5e2129"
-    show_single_value_title: true
-    single_value_title: Información act. hasta
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [rpt_ventas.category_orden_dinamarca]
-    hidden_pivots: {}
-    pinned_columns:
-      rpt_ventas.category: left
-    listen:
-      Período: rpt_ventas.date_filter
-    row: 56
-    col: 12
-    width: 12
-    height: 7
-  - title: MTD Dinamarca
-    name: MTD Dinamarca
-    model: envases-alg
-    explore: rpt_ventas
-    type: looker_grid
-    fields: [rpt_ventas.category_orden_dinamarca, rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
+    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
       rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
     filters:
-      rpt_ventas.Paises: Dinamarca
-      rpt_ventas.stat_curr: MXN,DKK
-      rpt_ventas.category: "-TOTAL USD"
-    sorts: [rpt_ventas.category_orden_dinamarca]
+      rpt_ventas.Paises: USA
+      rpt_ventas.stat_curr: MXN,USD
+      rpt_ventas.category: "-TOTAL USD,-SUB America"
+    sorts: [rpt_ventas.category_orden]
     limit: 500
     column_limit: 50
     show_view_names: false
@@ -939,16 +696,375 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    hidden_fields: [rpt_ventas.category_orden_dinamarca]
+    hidden_fields: [rpt_ventas.category_orden]
     hidden_pivots: {}
     pinned_columns:
       rpt_ventas.category: left
     listen:
       Período: rpt_ventas.date_filter
-    row: 56
+    row: 36
     col: 0
     width: 12
-    height: 7
+    height: 4
+  - title: BUDGET MTD USA
+    name: BUDGET MTD USA
+    model: envases-alg
+    explore: rpt_ventas
+    type: looker_grid
+    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT,
+      rpt_ventas.z_BUD_EXPORT_AMOUNT, rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
+    filters:
+      rpt_ventas.Paises: USA
+      rpt_ventas.stat_curr: USD,MXN
+      rpt_ventas.category: "-TOTAL USD,-SUB America"
+    sorts: [rpt_ventas.category_orden]
+    limit: 500
+    column_limit: 50
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: false
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '9'
+    rows_font_size: '9'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    column_order: [rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT, rpt_ventas.z_BUD_EXPORT_AMOUNT,
+      rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    header_font_color: "#FFF"
+    header_background_color: "#5e2129"
+    custom_color_enabled: true
+    custom_color: "#5e2129"
+    show_single_value_title: true
+    single_value_title: Información act. hasta
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [rpt_ventas.category_orden]
+    hidden_pivots: {}
+    pinned_columns:
+      rpt_ventas.category: left
+    listen:
+      Período: rpt_ventas.date_filter
+    row: 36
+    col: 12
+    width: 12
+    height: 4
+  - title: Guatemala
+    name: Guatemala
+    model: envases-alg
+    explore: rpt_ventas
+    type: looker_grid
+    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_QTY_MTD,
+      rpt_ventas.VS_QTY, rpt_ventas.VS_BUD_QTY, rpt_ventas.NATIONAL_AMOUNT_MTD, rpt_ventas.VS_VAL,
+      rpt_ventas.VS_BUD_VAL, rpt_ventas.EXPORT_QTY_MTD, rpt_ventas.VS_QTY_EXP, rpt_ventas.VS_BUD_QTY_EXP,
+      rpt_ventas.EXPORT_AMOUNT_MTD, rpt_ventas.VS_VAL_EXP, rpt_ventas.VS_BUD_VAL_EXP,
+      rpt_ventas.TOTAL_QTY, rpt_ventas._VS_YEAR_ANT_QTY_T, rpt_ventas.VS_BUD_QTY_T,
+      rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
+    filters:
+      rpt_ventas.Paises: Guatemala
+      rpt_ventas.stat_curr: MXN,GTQ
+      rpt_ventas.category: "-TOTAL USD,-SUB America"
+    sorts: [rpt_ventas.category_orden]
+    limit: 500
+    column_limit: 50
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: false
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '9'
+    rows_font_size: '9'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width:
+    series_column_widths:
+      rpt_ventas.category: 150
+      rpt_ventas.NATIONAL_QTY_MTD: 50
+      rpt_ventas.VS_QTY: 50
+      rpt_ventas.VS_BUD_QTY: 50
+      rpt_ventas.NATIONAL_AMOUNT_MTD: 50
+      rpt_ventas.VS_VAL: 50
+      rpt_ventas.VS_BUD_VAL: 50
+      rpt_ventas.VS_QTY_EXP: 50
+      rpt_ventas.VS_BUD_QTY_EXP: 50
+      rpt_ventas.EXPORT_AMOUNT_MTD: 50
+      rpt_ventas.VS_VAL_EXP: 50
+      rpt_ventas.TOTAL_QTY: 50
+      rpt_ventas._VS_YEAR_ANT_QTY_T: 50
+      rpt_ventas.VS_BUD_QTY_T: 50
+      rpt_ventas.TOTAL_AMOUNT: 50
+      rpt_ventas.VS_YEAR_ANT_VAL_T: 50
+      rpt_ventas.VS_BUD_T: 50
+      rpt_ventas.VS_BUD_VAL_EXP: 50
+      rpt_ventas.EXPORT_QTY_MTD: 50
+    series_cell_visualizations:
+      rpt_ventas.NATIONAL_QTY_MTD:
+        is_active: false
+    header_font_color: "#FFF"
+    header_background_color: "#5e2129"
+    custom_color_enabled: true
+    custom_color: "#5e2129"
+    show_single_value_title: true
+    single_value_title: Información act. hasta
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [rpt_ventas.category_orden]
+    hidden_pivots: {}
+    pinned_columns:
+      rpt_ventas.category: left
+    column_order: [rpt_ventas.category, rpt_ventas.NATIONAL_QTY_MTD, rpt_ventas.VS_QTY,
+      rpt_ventas.VS_BUD_QTY, rpt_ventas.NATIONAL_AMOUNT_MTD, rpt_ventas.VS_VAL, rpt_ventas.VS_BUD_VAL,
+      rpt_ventas.EXPORT_QTY_MTD, rpt_ventas.VS_QTY_EXP, rpt_ventas.VS_BUD_QTY_EXP,
+      rpt_ventas.EXPORT_AMOUNT_MTD, rpt_ventas.VS_VAL_EXP, rpt_ventas.VS_BUD_VAL_EXP,
+      rpt_ventas.TOTAL_QTY, rpt_ventas._VS_YEAR_ANT_QTY_T, rpt_ventas.VS_BUD_QTY_T,
+      rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
+    listen:
+      Período: rpt_ventas.date_filter
+    row: 47
+    col: 0
+    width: 24
+    height: 6
+  - title: MTD Guatemala
+    name: MTD Guatemala
+    model: envases-alg
+    explore: rpt_ventas
+    type: looker_grid
+    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
+      rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
+    filters:
+      rpt_ventas.Paises: Guatemala
+      rpt_ventas.stat_curr: MXN,GTQ
+      rpt_ventas.category: "-TOTAL USD,-SUB America"
+    sorts: [rpt_ventas.category_orden]
+    limit: 500
+    column_limit: 50
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: false
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '9'
+    rows_font_size: '9'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    column_order: [rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
+      rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    header_font_color: "#FFF"
+    header_background_color: "#5e2129"
+    custom_color_enabled: true
+    custom_color: "#5e2129"
+    show_single_value_title: true
+    single_value_title: Información act. hasta
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [rpt_ventas.category_orden]
+    hidden_pivots: {}
+    pinned_columns:
+      rpt_ventas.category: left
+    listen:
+      Período: rpt_ventas.date_filter
+    row: 53
+    col: 0
+    width: 12
+    height: 4
+  - title: BUDGET MTD Guatemala
+    name: BUDGET MTD Guatemala
+    model: envases-alg
+    explore: rpt_ventas
+    type: looker_grid
+    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT,
+      rpt_ventas.z_BUD_EXPORT_AMOUNT, rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
+    filters:
+      rpt_ventas.Paises: Guatemala
+      rpt_ventas.stat_curr: MXN,GTQ
+      rpt_ventas.category: "-TOTAL USD,-SUB America"
+    sorts: [rpt_ventas.category_orden]
+    limit: 500
+    column_limit: 50
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: false
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '9'
+    rows_font_size: '9'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    column_order: [rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT, rpt_ventas.z_BUD_EXPORT_AMOUNT,
+      rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    header_font_color: "#FFF"
+    header_background_color: "#5e2129"
+    custom_color_enabled: true
+    custom_color: "#5e2129"
+    show_single_value_title: true
+    single_value_title: Información act. hasta
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [rpt_ventas.category_orden]
+    hidden_pivots: {}
+    pinned_columns:
+      rpt_ventas.category: left
+    listen:
+      Período: rpt_ventas.date_filter
+    row: 53
+    col: 12
+    width: 12
+    height: 4
   - title: Dinamarca
     name: Dinamarca
     model: envases-alg
@@ -963,7 +1079,7 @@
     filters:
       rpt_ventas.Paises: Dinamarca
       rpt_ventas.stat_curr: MXN,DKK
-      rpt_ventas.category: "-TOTAL USD"
+      rpt_ventas.category: "-TOTAL USD,-SUB Europa"
     sorts: [rpt_ventas.category_orden_dinamarca]
     limit: 500
     column_limit: 50
@@ -1058,22 +1174,22 @@
       rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
     listen:
       Período: rpt_ventas.date_filter
-    row: 46
+    row: 57
     col: 0
     width: 24
     height: 10
-  - title: MTD Alemania
-    name: MTD Alemania
+  - title: MTD Dinamarca
+    name: MTD Dinamarca
     model: envases-alg
     explore: rpt_ventas
     type: looker_grid
-    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
+    fields: [rpt_ventas.category_orden_dinamarca, rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
       rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
     filters:
-      rpt_ventas.Paises: Alemania
-      rpt_ventas.stat_curr: MXN,EUR
-      rpt_ventas.category: "-TOTAL USD"
-    sorts: [rpt_ventas.category_orden]
+      rpt_ventas.Paises: Dinamarca
+      rpt_ventas.stat_curr: MXN,DKK
+      rpt_ventas.category: "-TOTAL USD,-SUB Europa"
+    sorts: [rpt_ventas.category_orden_dinamarca]
     limit: 500
     column_limit: 50
     show_view_names: false
@@ -1134,28 +1250,28 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    hidden_fields: [rpt_ventas.category_orden]
+    hidden_fields: [rpt_ventas.category_orden_dinamarca]
     hidden_pivots: {}
     pinned_columns:
       rpt_ventas.category: left
     listen:
       Período: rpt_ventas.date_filter
-    row: 68
+    row: 67
     col: 0
     width: 12
-    height: 4
-  - title: BUDGET MTD  Alemania
-    name: BUDGET MTD  Alemania
+    height: 7
+  - title: BUDGET MTD Dinamarca
+    name: BUDGET MTD Dinamarca
     model: envases-alg
     explore: rpt_ventas
     type: looker_grid
-    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT,
+    fields: [rpt_ventas.category_orden_dinamarca, rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT,
       rpt_ventas.z_BUD_EXPORT_AMOUNT, rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
     filters:
-      rpt_ventas.Paises: Alemania
-      rpt_ventas.stat_curr: MXN,EUR
-      rpt_ventas.category: "-TOTAL USD"
-    sorts: [rpt_ventas.category_orden]
+      rpt_ventas.Paises: Dinamarca
+      rpt_ventas.stat_curr: MXN,DKK
+      rpt_ventas.category: "-TOTAL USD,-SUB Europa"
+    sorts: [rpt_ventas.category_orden_dinamarca]
     limit: 500
     column_limit: 50
     show_view_names: false
@@ -1216,16 +1332,16 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    hidden_fields: [rpt_ventas.category_orden]
+    hidden_fields: [rpt_ventas.category_orden_dinamarca]
     hidden_pivots: {}
     pinned_columns:
       rpt_ventas.category: left
     listen:
       Período: rpt_ventas.date_filter
-    row: 68
+    row: 67
     col: 12
     width: 12
-    height: 4
+    height: 7
   - title: Alemania
     name: Alemania
     model: envases-alg
@@ -1240,7 +1356,7 @@
     filters:
       rpt_ventas.Paises: Alemania
       rpt_ventas.stat_curr: MXN,EUR
-      rpt_ventas.category: "-TOTAL USD"
+      rpt_ventas.category: "-TOTAL USD,-SUB Europa"
     sorts: [rpt_ventas.category_orden]
     limit: 500
     column_limit: 50
@@ -1335,21 +1451,21 @@
       rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
     listen:
       Período: rpt_ventas.date_filter
-    row: 63
+    row: 74
     col: 0
     width: 24
     height: 5
-  - title: MTD Países Bajos
-    name: MTD Países Bajos
+  - title: MTD Alemania
+    name: MTD Alemania
     model: envases-alg
     explore: rpt_ventas
     type: looker_grid
     fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
       rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
     filters:
-      rpt_ventas.Paises: Holanda
+      rpt_ventas.Paises: Alemania
       rpt_ventas.stat_curr: MXN,EUR
-      rpt_ventas.category: "-TOTAL USD"
+      rpt_ventas.category: "-TOTAL USD,-SUB Europa"
     sorts: [rpt_ventas.category_orden]
     limit: 500
     column_limit: 50
@@ -1417,21 +1533,216 @@
       rpt_ventas.category: left
     listen:
       Período: rpt_ventas.date_filter
-    row: 87
+    row: 79
     col: 0
     width: 12
     height: 4
-  - title: BUDGET MTD Países Bajos
-    name: BUDGET MTD Países Bajos
+  - title: España
+    name: España
+    model: envases-alg
+    explore: rpt_ventas
+    type: looker_grid
+    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_QTY_MTD,
+      rpt_ventas.VS_QTY, rpt_ventas.VS_BUD_QTY, rpt_ventas.NATIONAL_AMOUNT_MTD, rpt_ventas.VS_VAL,
+      rpt_ventas.VS_BUD_VAL, rpt_ventas.EXPORT_QTY_MTD, rpt_ventas.VS_QTY_EXP, rpt_ventas.VS_BUD_QTY_EXP,
+      rpt_ventas.EXPORT_AMOUNT_MTD, rpt_ventas.VS_VAL_EXP, rpt_ventas.VS_BUD_VAL_EXP,
+      rpt_ventas.TOTAL_QTY, rpt_ventas._VS_YEAR_ANT_QTY_T, rpt_ventas.VS_BUD_QTY_T,
+      rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
+    filters:
+      rpt_ventas.Paises: España
+      rpt_ventas.stat_curr: MXN,EUR
+      rpt_ventas.category: "-TOTAL USD,-SUB Europa"
+    sorts: [rpt_ventas.category_orden]
+    limit: 500
+    column_limit: 50
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: false
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '9'
+    rows_font_size: '9'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width:
+    series_column_widths:
+      rpt_ventas.category: 150
+      rpt_ventas.NATIONAL_QTY_MTD: 50
+      rpt_ventas.VS_QTY: 50
+      rpt_ventas.VS_BUD_QTY: 50
+      rpt_ventas.NATIONAL_AMOUNT_MTD: 50
+      rpt_ventas.VS_VAL: 50
+      rpt_ventas.VS_BUD_VAL: 50
+      rpt_ventas.VS_QTY_EXP: 50
+      rpt_ventas.VS_BUD_QTY_EXP: 50
+      rpt_ventas.EXPORT_AMOUNT_MTD: 50
+      rpt_ventas.VS_VAL_EXP: 50
+      rpt_ventas.TOTAL_QTY: 50
+      rpt_ventas._VS_YEAR_ANT_QTY_T: 50
+      rpt_ventas.VS_BUD_QTY_T: 50
+      rpt_ventas.TOTAL_AMOUNT: 50
+      rpt_ventas.VS_YEAR_ANT_VAL_T: 50
+      rpt_ventas.VS_BUD_T: 50
+      rpt_ventas.VS_BUD_VAL_EXP: 50
+      rpt_ventas.EXPORT_QTY_MTD: 50
+    series_cell_visualizations:
+      rpt_ventas.NATIONAL_QTY_MTD:
+        is_active: false
+    header_font_color: "#FFF"
+    header_background_color: "#5e2129"
+    custom_color_enabled: true
+    custom_color: "#5e2129"
+    show_single_value_title: true
+    single_value_title: Información act. hasta
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [rpt_ventas.category_orden]
+    hidden_pivots: {}
+    pinned_columns:
+      rpt_ventas.category: left
+    column_order: [rpt_ventas.category, rpt_ventas.NATIONAL_QTY_MTD, rpt_ventas.VS_QTY,
+      rpt_ventas.VS_BUD_QTY, rpt_ventas.NATIONAL_AMOUNT_MTD, rpt_ventas.VS_VAL, rpt_ventas.VS_BUD_VAL,
+      rpt_ventas.EXPORT_QTY_MTD, rpt_ventas.VS_QTY_EXP, rpt_ventas.VS_BUD_QTY_EXP,
+      rpt_ventas.EXPORT_AMOUNT_MTD, rpt_ventas.VS_VAL_EXP, rpt_ventas.VS_BUD_VAL_EXP,
+      rpt_ventas.TOTAL_QTY, rpt_ventas._VS_YEAR_ANT_QTY_T, rpt_ventas.VS_BUD_QTY_T,
+      rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
+    listen:
+      Período: rpt_ventas.date_filter
+    row: 83
+    col: 0
+    width: 24
+    height: 5
+  - title: MTD España
+    name: MTD España
+    model: envases-alg
+    explore: rpt_ventas
+    type: looker_grid
+    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
+      rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
+    filters:
+      rpt_ventas.Paises: España
+      rpt_ventas.stat_curr: MXN,EUR
+      rpt_ventas.category: "-TOTAL USD,-SUB Europa"
+    sorts: [rpt_ventas.category_orden]
+    limit: 500
+    column_limit: 50
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: false
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '9'
+    rows_font_size: '9'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    column_order: [rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
+      rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    header_font_color: "#FFF"
+    header_background_color: "#5e2129"
+    custom_color_enabled: true
+    custom_color: "#5e2129"
+    show_single_value_title: true
+    single_value_title: Información act. hasta
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [rpt_ventas.category_orden]
+    hidden_pivots: {}
+    pinned_columns:
+      rpt_ventas.category: left
+    listen:
+      Período: rpt_ventas.date_filter
+    row: 88
+    col: 0
+    width: 12
+    height: 4
+  - title: BUDGET MTD  España
+    name: BUDGET MTD  España
     model: envases-alg
     explore: rpt_ventas
     type: looker_grid
     fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT,
       rpt_ventas.z_BUD_EXPORT_AMOUNT, rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
     filters:
-      rpt_ventas.Paises: Holanda
+      rpt_ventas.Paises: España
       rpt_ventas.stat_curr: MXN,EUR
-      rpt_ventas.category: "-TOTAL USD"
+      rpt_ventas.category: "-TOTAL USD,-SUB Europa"
     sorts: [rpt_ventas.category_orden]
     limit: 500
     column_limit: 50
@@ -1499,7 +1810,89 @@
       rpt_ventas.category: left
     listen:
       Período: rpt_ventas.date_filter
-    row: 87
+    row: 88
+    col: 12
+    width: 12
+    height: 4
+  - title: BUDGET MTD Alemania
+    name: BUDGET MTD Alemania
+    model: envases-alg
+    explore: rpt_ventas
+    type: looker_grid
+    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT,
+      rpt_ventas.z_BUD_EXPORT_AMOUNT, rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
+    filters:
+      rpt_ventas.Paises: Alemania
+      rpt_ventas.stat_curr: MXN,EUR
+      rpt_ventas.category: "-TOTAL USD,-SUB Europa"
+    sorts: [rpt_ventas.category_orden]
+    limit: 500
+    column_limit: 50
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: false
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '9'
+    rows_font_size: '9'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    column_order: [rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT, rpt_ventas.z_BUD_EXPORT_AMOUNT,
+      rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    header_font_color: "#FFF"
+    header_background_color: "#5e2129"
+    custom_color_enabled: true
+    custom_color: "#5e2129"
+    show_single_value_title: true
+    single_value_title: Información act. hasta
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [rpt_ventas.category_orden]
+    hidden_pivots: {}
+    pinned_columns:
+      rpt_ventas.category: left
+    listen:
+      Período: rpt_ventas.date_filter
+    row: 79
     col: 12
     width: 12
     height: 4
@@ -1517,7 +1910,7 @@
     filters:
       rpt_ventas.Paises: Holanda
       rpt_ventas.stat_curr: MXN,EUR
-      rpt_ventas.category: "-TOTAL USD"
+      rpt_ventas.category: "-TOTAL USD,-SUB Europa"
     sorts: [rpt_ventas.category_orden]
     limit: 500
     column_limit: 50
@@ -1612,103 +2005,21 @@
       rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
     listen:
       Período: rpt_ventas.date_filter
-    row: 81
+    row: 92
     col: 0
     width: 24
     height: 6
-  - title: BUDGET MTD Guatemala
-    name: BUDGET MTD Guatemala
-    model: envases-alg
-    explore: rpt_ventas
-    type: looker_grid
-    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT,
-      rpt_ventas.z_BUD_EXPORT_AMOUNT, rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
-    filters:
-      rpt_ventas.Paises: Guatemala
-      rpt_ventas.stat_curr: MXN,GTQ
-      rpt_ventas.category: "-TOTAL USD"
-    sorts: [rpt_ventas.category_orden]
-    limit: 500
-    column_limit: 50
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: false
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: '9'
-    rows_font_size: '9'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    column_order: [rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT, rpt_ventas.z_BUD_EXPORT_AMOUNT,
-      rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    header_font_color: "#FFF"
-    header_background_color: "#5e2129"
-    custom_color_enabled: true
-    custom_color: "#5e2129"
-    show_single_value_title: true
-    single_value_title: Información act. hasta
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [rpt_ventas.category_orden]
-    hidden_pivots: {}
-    pinned_columns:
-      rpt_ventas.category: left
-    listen:
-      Período: rpt_ventas.date_filter
-    row: 42
-    col: 12
-    width: 12
-    height: 4
-  - title: MTD Guatemala
-    name: MTD Guatemala
+  - title: MTD Países Bajos
+    name: MTD Países Bajos
     model: envases-alg
     explore: rpt_ventas
     type: looker_grid
     fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
       rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
     filters:
-      rpt_ventas.Paises: Guatemala
-      rpt_ventas.stat_curr: MXN,GTQ
-      rpt_ventas.category: "-TOTAL USD"
+      rpt_ventas.Paises: Holanda
+      rpt_ventas.stat_curr: MXN,EUR
+      rpt_ventas.category: "-TOTAL USD,-SUB Europa"
     sorts: [rpt_ventas.category_orden]
     limit: 500
     column_limit: 50
@@ -1776,329 +2087,21 @@
       rpt_ventas.category: left
     listen:
       Período: rpt_ventas.date_filter
-    row: 42
+    row: 98
     col: 0
     width: 12
     height: 4
-  - title: Guatemala
-    name: Guatemala
-    model: envases-alg
-    explore: rpt_ventas
-    type: looker_grid
-    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_QTY_MTD,
-      rpt_ventas.VS_QTY, rpt_ventas.VS_BUD_QTY, rpt_ventas.NATIONAL_AMOUNT_MTD, rpt_ventas.VS_VAL,
-      rpt_ventas.VS_BUD_VAL, rpt_ventas.EXPORT_QTY_MTD, rpt_ventas.VS_QTY_EXP, rpt_ventas.VS_BUD_QTY_EXP,
-      rpt_ventas.EXPORT_AMOUNT_MTD, rpt_ventas.VS_VAL_EXP, rpt_ventas.VS_BUD_VAL_EXP,
-      rpt_ventas.TOTAL_QTY, rpt_ventas._VS_YEAR_ANT_QTY_T, rpt_ventas.VS_BUD_QTY_T,
-      rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
-    filters:
-      rpt_ventas.Paises: Guatemala
-      rpt_ventas.stat_curr: MXN,GTQ
-      rpt_ventas.category: "-TOTAL USD"
-    sorts: [rpt_ventas.category_orden]
-    limit: 500
-    column_limit: 50
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: false
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: '9'
-    rows_font_size: '9'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width:
-    series_column_widths:
-      rpt_ventas.category: 150
-      rpt_ventas.NATIONAL_QTY_MTD: 50
-      rpt_ventas.VS_QTY: 50
-      rpt_ventas.VS_BUD_QTY: 50
-      rpt_ventas.NATIONAL_AMOUNT_MTD: 50
-      rpt_ventas.VS_VAL: 50
-      rpt_ventas.VS_BUD_VAL: 50
-      rpt_ventas.VS_QTY_EXP: 50
-      rpt_ventas.VS_BUD_QTY_EXP: 50
-      rpt_ventas.EXPORT_AMOUNT_MTD: 50
-      rpt_ventas.VS_VAL_EXP: 50
-      rpt_ventas.TOTAL_QTY: 50
-      rpt_ventas._VS_YEAR_ANT_QTY_T: 50
-      rpt_ventas.VS_BUD_QTY_T: 50
-      rpt_ventas.TOTAL_AMOUNT: 50
-      rpt_ventas.VS_YEAR_ANT_VAL_T: 50
-      rpt_ventas.VS_BUD_T: 50
-      rpt_ventas.VS_BUD_VAL_EXP: 50
-      rpt_ventas.EXPORT_QTY_MTD: 50
-    series_cell_visualizations:
-      rpt_ventas.NATIONAL_QTY_MTD:
-        is_active: false
-    header_font_color: "#FFF"
-    header_background_color: "#5e2129"
-    custom_color_enabled: true
-    custom_color: "#5e2129"
-    show_single_value_title: true
-    single_value_title: Información act. hasta
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [rpt_ventas.category_orden]
-    hidden_pivots: {}
-    pinned_columns:
-      rpt_ventas.category: left
-    column_order: [rpt_ventas.category, rpt_ventas.NATIONAL_QTY_MTD, rpt_ventas.VS_QTY,
-      rpt_ventas.VS_BUD_QTY, rpt_ventas.NATIONAL_AMOUNT_MTD, rpt_ventas.VS_VAL, rpt_ventas.VS_BUD_VAL,
-      rpt_ventas.EXPORT_QTY_MTD, rpt_ventas.VS_QTY_EXP, rpt_ventas.VS_BUD_QTY_EXP,
-      rpt_ventas.EXPORT_AMOUNT_MTD, rpt_ventas.VS_VAL_EXP, rpt_ventas.VS_BUD_VAL_EXP,
-      rpt_ventas.TOTAL_QTY, rpt_ventas._VS_YEAR_ANT_QTY_T, rpt_ventas.VS_BUD_QTY_T,
-      rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
-    listen:
-      Período: rpt_ventas.date_filter
-    row: 37
-    col: 0
-    width: 24
-    height: 5
-  - title: España
-    name: España
-    model: envases-alg
-    explore: rpt_ventas
-    type: looker_grid
-    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_QTY_MTD,
-      rpt_ventas.VS_QTY, rpt_ventas.VS_BUD_QTY, rpt_ventas.NATIONAL_AMOUNT_MTD, rpt_ventas.VS_VAL,
-      rpt_ventas.VS_BUD_VAL, rpt_ventas.EXPORT_QTY_MTD, rpt_ventas.VS_QTY_EXP, rpt_ventas.VS_BUD_QTY_EXP,
-      rpt_ventas.EXPORT_AMOUNT_MTD, rpt_ventas.VS_VAL_EXP, rpt_ventas.VS_BUD_VAL_EXP,
-      rpt_ventas.TOTAL_QTY, rpt_ventas._VS_YEAR_ANT_QTY_T, rpt_ventas.VS_BUD_QTY_T,
-      rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
-    filters:
-      rpt_ventas.Paises: España
-      rpt_ventas.stat_curr: MXN,EUR
-      rpt_ventas.category: "-TOTAL USD"
-    sorts: [rpt_ventas.category_orden]
-    limit: 500
-    column_limit: 50
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: false
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: '9'
-    rows_font_size: '9'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width:
-    series_column_widths:
-      rpt_ventas.category: 150
-      rpt_ventas.NATIONAL_QTY_MTD: 50
-      rpt_ventas.VS_QTY: 50
-      rpt_ventas.VS_BUD_QTY: 50
-      rpt_ventas.NATIONAL_AMOUNT_MTD: 50
-      rpt_ventas.VS_VAL: 50
-      rpt_ventas.VS_BUD_VAL: 50
-      rpt_ventas.VS_QTY_EXP: 50
-      rpt_ventas.VS_BUD_QTY_EXP: 50
-      rpt_ventas.EXPORT_AMOUNT_MTD: 50
-      rpt_ventas.VS_VAL_EXP: 50
-      rpt_ventas.TOTAL_QTY: 50
-      rpt_ventas._VS_YEAR_ANT_QTY_T: 50
-      rpt_ventas.VS_BUD_QTY_T: 50
-      rpt_ventas.TOTAL_AMOUNT: 50
-      rpt_ventas.VS_YEAR_ANT_VAL_T: 50
-      rpt_ventas.VS_BUD_T: 50
-      rpt_ventas.VS_BUD_VAL_EXP: 50
-      rpt_ventas.EXPORT_QTY_MTD: 50
-    series_cell_visualizations:
-      rpt_ventas.NATIONAL_QTY_MTD:
-        is_active: false
-    header_font_color: "#FFF"
-    header_background_color: "#5e2129"
-    custom_color_enabled: true
-    custom_color: "#5e2129"
-    show_single_value_title: true
-    single_value_title: Información act. hasta
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [rpt_ventas.category_orden]
-    hidden_pivots: {}
-    pinned_columns:
-      rpt_ventas.category: left
-    column_order: [rpt_ventas.category, rpt_ventas.NATIONAL_QTY_MTD, rpt_ventas.VS_QTY,
-      rpt_ventas.VS_BUD_QTY, rpt_ventas.NATIONAL_AMOUNT_MTD, rpt_ventas.VS_VAL, rpt_ventas.VS_BUD_VAL,
-      rpt_ventas.EXPORT_QTY_MTD, rpt_ventas.VS_QTY_EXP, rpt_ventas.VS_BUD_QTY_EXP,
-      rpt_ventas.EXPORT_AMOUNT_MTD, rpt_ventas.VS_VAL_EXP, rpt_ventas.VS_BUD_VAL_EXP,
-      rpt_ventas.TOTAL_QTY, rpt_ventas._VS_YEAR_ANT_QTY_T, rpt_ventas.VS_BUD_QTY_T,
-      rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
-    listen:
-      Período: rpt_ventas.date_filter
-    row: 72
-    col: 0
-    width: 24
-    height: 5
-  - title: MTD España
-    name: MTD España
-    model: envases-alg
-    explore: rpt_ventas
-    type: looker_grid
-    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
-      rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
-    filters:
-      rpt_ventas.Paises: España
-      rpt_ventas.stat_curr: MXN,EUR
-      rpt_ventas.category: "-TOTAL USD"
-    sorts: [rpt_ventas.category_orden]
-    limit: 500
-    column_limit: 50
-    show_view_names: false
-    show_row_numbers: false
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: false
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: '9'
-    rows_font_size: '9'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    column_order: [rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
-      rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    header_font_color: "#FFF"
-    header_background_color: "#5e2129"
-    custom_color_enabled: true
-    custom_color: "#5e2129"
-    show_single_value_title: true
-    single_value_title: Información act. hasta
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [rpt_ventas.category_orden]
-    hidden_pivots: {}
-    pinned_columns:
-      rpt_ventas.category: left
-    listen:
-      Período: rpt_ventas.date_filter
-    row: 77
-    col: 0
-    width: 12
-    height: 4
-  - title: BUDGET MTD  España
-    name: BUDGET MTD  España
+  - title: BUDGET MTD Países Bajos
+    name: BUDGET MTD Países Bajos
     model: envases-alg
     explore: rpt_ventas
     type: looker_grid
     fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT,
       rpt_ventas.z_BUD_EXPORT_AMOUNT, rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
     filters:
-      rpt_ventas.Paises: España
+      rpt_ventas.Paises: Holanda
       rpt_ventas.stat_curr: MXN,EUR
-      rpt_ventas.category: "-TOTAL USD"
+      rpt_ventas.category: "-TOTAL USD,-SUB Europa"
     sorts: [rpt_ventas.category_orden]
     limit: 500
     column_limit: 50
@@ -2166,12 +2169,12 @@
       rpt_ventas.category: left
     listen:
       Período: rpt_ventas.date_filter
-    row: 77
+    row: 98
     col: 12
     width: 12
     height: 4
-  - title: MTD Total MXN
-    name: MTD Total MXN
+  - title: MTD TOTAL MXN
+    name: MTD TOTAL MXN
     model: envases-alg
     explore: rpt_ventas
     type: looker_grid
@@ -2278,15 +2281,382 @@
       rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
     listen:
       Período: rpt_ventas.date_filter
-    row: 91
+    row: 102
     col: 0
     width: 24
-    height: 6
+    height: 3
+  - title: RESUMEN
+    name: RESUMEN
+    model: envases-alg
+    explore: rpt_ventas
+    type: looker_grid
+    fields: [rpt_ventas.category2_orden, rpt_ventas.category2, rpt_ventas.TOTAL_AMOUNT,
+      rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
+    filters:
+      rpt_ventas.summary_flag: '1,2'
+      rpt_ventas.category2: "-Guatemala (USD)"
+    sorts: [rpt_ventas.category2_orden]
+    limit: 500
+    column_limit: 50
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: false
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '9'
+    rows_font_size: '9'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    pinned_columns:
+      rpt_ventas.category: left
+    column_order: [rpt_ventas.category2, rpt_ventas.summary_flag, rpt_ventas.NATIONAL_QTY_MTD,
+      rpt_ventas.VS_QTY, rpt_ventas.VS_BUD_QTY, rpt_ventas.NATIONAL_AMOUNT_MTD, rpt_ventas.VS_VAL,
+      rpt_ventas.VS_BUD_VAL, rpt_ventas.EXPORT_QTY_MTD, rpt_ventas.VS_QTY_EXP, rpt_ventas.VS_BUD_QTY_EXP,
+      rpt_ventas.EXPORT_AMOUNT_MTD, rpt_ventas.VS_VAL_EXP, rpt_ventas.VS_BUD_VAL_EXP,
+      rpt_ventas.TOTAL_QTY, rpt_ventas._VS_YEAR_ANT_QTY_T, rpt_ventas.VS_BUD_QTY_T,
+      rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_column_widths:
+      rpt_ventas.TOTAL_AMOUNT: 50
+      rpt_ventas.VS_YEAR_ANT_VAL_T: 50
+      rpt_ventas.VS_BUD_T: 50
+      rpt_ventas.category2: 158
+    header_font_color: "#FFF"
+    header_background_color: "#5e2129"
+    custom_color_enabled: true
+    custom_color: "#5e2129"
+    show_single_value_title: true
+    single_value_title: Información act. hasta
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [rpt_ventas.category2_orden]
+    hidden_pivots: {}
+    listen:
+      Período: rpt_ventas.date_filter
+    row: 0
+    col: 7
+    width: 8
+    height: 8
+  - title: MTD Canada
+    name: MTD Canada
+    model: envases-alg
+    explore: rpt_ventas
+    type: looker_grid
+    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
+      rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
+    filters:
+      rpt_ventas.Paises: Canadá
+      rpt_ventas.stat_curr: MXN,CAD
+      rpt_ventas.category: "-TOTAL USD,-SUB America"
+    sorts: [rpt_ventas.category_orden]
+    limit: 500
+    column_limit: 50
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: false
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '9'
+    rows_font_size: '9'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    column_order: [rpt_ventas.category, rpt_ventas.NATIONAL_AMOUNT_MTD_YEAR_ANT_YEAR,
+      rpt_ventas.EXPORT_AMOUNT_MTD_YEAR_ANT_YEAR, rpt_ventas.TOTAL_AMOUNT_YEAR_ANT]
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    header_font_color: "#FFF"
+    header_background_color: "#5e2129"
+    custom_color_enabled: true
+    custom_color: "#5e2129"
+    show_single_value_title: true
+    single_value_title: Información act. hasta
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [rpt_ventas.category_orden]
+    hidden_pivots: {}
+    pinned_columns:
+      rpt_ventas.category: left
+    listen:
+      Período: rpt_ventas.date_filter
+    row: 44
+    col: 0
+    width: 12
+    height: 3
+  - title: BUDGET MTD Canada
+    name: BUDGET MTD Canada
+    model: envases-alg
+    explore: rpt_ventas
+    type: looker_grid
+    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT,
+      rpt_ventas.z_BUD_EXPORT_AMOUNT, rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
+    filters:
+      rpt_ventas.Paises: Canadá
+      rpt_ventas.stat_curr: MXN,CAD
+      rpt_ventas.category: "-TOTAL USD,-SUB America"
+    sorts: [rpt_ventas.category_orden]
+    limit: 500
+    column_limit: 50
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: false
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '9'
+    rows_font_size: '9'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    column_order: [rpt_ventas.category, rpt_ventas.z_BUD_NATIONAL_AMOUNT, rpt_ventas.z_BUD_EXPORT_AMOUNT,
+      rpt_ventas.BUD_TOTAL_AMOUNT_YEAR]
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    header_font_color: "#FFF"
+    header_background_color: "#5e2129"
+    custom_color_enabled: true
+    custom_color: "#5e2129"
+    show_single_value_title: true
+    single_value_title: Información act. hasta
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [rpt_ventas.category_orden]
+    hidden_pivots: {}
+    pinned_columns:
+      rpt_ventas.category: left
+    listen:
+      Período: rpt_ventas.date_filter
+    row: 44
+    col: 12
+    width: 12
+    height: 3
+  - title: Canada
+    name: Canada
+    model: envases-alg
+    explore: rpt_ventas
+    type: looker_grid
+    fields: [rpt_ventas.category_orden, rpt_ventas.category, rpt_ventas.NATIONAL_QTY_MTD,
+      rpt_ventas.VS_QTY, rpt_ventas.VS_BUD_QTY, rpt_ventas.NATIONAL_AMOUNT_MTD, rpt_ventas.VS_VAL,
+      rpt_ventas.VS_BUD_VAL, rpt_ventas.EXPORT_QTY_MTD, rpt_ventas.VS_QTY_EXP, rpt_ventas.VS_BUD_QTY_EXP,
+      rpt_ventas.EXPORT_AMOUNT_MTD, rpt_ventas.VS_VAL_EXP, rpt_ventas.VS_BUD_VAL_EXP,
+      rpt_ventas.TOTAL_QTY, rpt_ventas._VS_YEAR_ANT_QTY_T, rpt_ventas.VS_BUD_QTY_T,
+      rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
+    filters:
+      rpt_ventas.Paises: Canadá
+      rpt_ventas.stat_curr: MXN,CAD
+      rpt_ventas.category: "-TOTAL USD,-SUB America"
+    sorts: [rpt_ventas.category_orden]
+    limit: 500
+    column_limit: 50
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: false
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '9'
+    rows_font_size: '9'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width:
+    series_column_widths:
+      rpt_ventas.category: 150
+      rpt_ventas.NATIONAL_QTY_MTD: 50
+      rpt_ventas.VS_QTY: 50
+      rpt_ventas.VS_BUD_QTY: 50
+      rpt_ventas.NATIONAL_AMOUNT_MTD: 50
+      rpt_ventas.VS_VAL: 50
+      rpt_ventas.VS_BUD_VAL: 50
+      rpt_ventas.VS_QTY_EXP: 50
+      rpt_ventas.VS_BUD_QTY_EXP: 50
+      rpt_ventas.EXPORT_AMOUNT_MTD: 50
+      rpt_ventas.VS_VAL_EXP: 50
+      rpt_ventas.TOTAL_QTY: 50
+      rpt_ventas._VS_YEAR_ANT_QTY_T: 50
+      rpt_ventas.VS_BUD_QTY_T: 50
+      rpt_ventas.TOTAL_AMOUNT: 50
+      rpt_ventas.VS_YEAR_ANT_VAL_T: 50
+      rpt_ventas.VS_BUD_T: 50
+      rpt_ventas.VS_BUD_VAL_EXP: 50
+      rpt_ventas.EXPORT_QTY_MTD: 50
+    series_cell_visualizations:
+      rpt_ventas.NATIONAL_QTY_MTD:
+        is_active: false
+    header_font_color: "#FFF"
+    header_background_color: "#5e2129"
+    custom_color_enabled: true
+    custom_color: "#5e2129"
+    show_single_value_title: true
+    single_value_title: Información act. hasta
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: [rpt_ventas.category_orden]
+    hidden_pivots: {}
+    pinned_columns:
+      rpt_ventas.category: left
+    column_order: [rpt_ventas.category, rpt_ventas.NATIONAL_QTY_MTD, rpt_ventas.VS_QTY,
+      rpt_ventas.VS_BUD_QTY, rpt_ventas.NATIONAL_AMOUNT_MTD, rpt_ventas.VS_VAL, rpt_ventas.VS_BUD_VAL,
+      rpt_ventas.EXPORT_QTY_MTD, rpt_ventas.VS_QTY_EXP, rpt_ventas.VS_BUD_QTY_EXP,
+      rpt_ventas.EXPORT_AMOUNT_MTD, rpt_ventas.VS_VAL_EXP, rpt_ventas.VS_BUD_VAL_EXP,
+      rpt_ventas.TOTAL_QTY, rpt_ventas._VS_YEAR_ANT_QTY_T, rpt_ventas.VS_BUD_QTY_T,
+      rpt_ventas.TOTAL_AMOUNT, rpt_ventas.VS_YEAR_ANT_VAL_T, rpt_ventas.VS_BUD_T]
+    listen:
+      Período: rpt_ventas.date_filter
+    row: 40
+    col: 0
+    width: 24
+    height: 4
   filters:
   - name: Período
     title: Período
     type: field_filter
-    default_value: 2023/06/30
+    default_value: 2023/07/26
     allow_multiple_values: true
     required: true
     ui_config:
