@@ -1,7 +1,7 @@
 view: rpt_alg {
  derived_table: {
-  sql: SELECT v.*,CAST(c.DATE AS TIMESTAMP) Fecha,c.QUARTER,c.YEAR,0 UKURS,'' FCURR, DATE_ADD(CURRENT_DATE(), INTERVAL -1 DAY) ACTUALIZACION FROM envases-analytics-eon-poc.ENVASES_REPORTING.rpt_ventas v
-      LEFT JOIN envases-analytics-eon-poc.ENVASES_REPORTING.CALENDAR c on v.CALDAY=c.CALDAY  WHERE CATEGORY NOT IN ('TOTAL MXN')
+  sql: SELECT v.*,CAST(c.DATE AS TIMESTAMP) Fecha,c.QUARTER,c.YEAR,0 UKURS,'' FCURR, DATE_ADD(CURRENT_DATE(), INTERVAL -1 DAY) ACTUALIZACION FROM eon-internal-bigquery.DATASET_RAW_ENVASES.rpt_ventas v
+      LEFT JOIN eon-internal-bigquery.DATASET_RAW_ENVASES.CALENDAR c on v.CALDAY=c.CALDAY  WHERE CATEGORY NOT IN ('TOTAL MXN')
 
     UNION ALL
 
@@ -46,12 +46,12 @@ view: rpt_alg {
     ,V.CLIENT
     ,CAST(c.DATE AS TIMESTAMP) Fecha,c.QUARTER,c.YEAR
     ,mo.UKURS
-    ,mo.FCURR, DATE_ADD(CURRENT_DATE(), INTERVAL -1 DAY) ACTUALIZACION FROM envases-analytics-eon-poc.ENVASES_REPORTING.rpt_ventas v
-    LEFT JOIN envases-analytics-eon-poc.ENVASES_REPORTING.CALENDAR c on v.CALDAY=c.CALDAY
+    ,mo.FCURR, DATE_ADD(CURRENT_DATE(), INTERVAL -1 DAY) ACTUALIZACION FROM eon-internal-bigquery.DATASET_RAW_ENVASES.rpt_ventas v
+    LEFT JOIN eon-internal-bigquery.DATASET_RAW_ENVASES.CALENDAR c on v.CALDAY=c.CALDAY
     LEFT JOIN (
 
-    SELECT CAST(99999999 - CAST(GDATU AS NUMERIC) AS STRING) AS CALDAY, TRIM(FCURR) FCURR, TRIM(TCURR) TCURR, UKURS,c.date FROM `envases-analytics-eon-poc.DATASET_RAW.ECC_PROD_TCURR`
-    left join envases-analytics-eon-poc.ENVASES_REPORTING.CALENDAR c on c.CALDAY=CAST(99999999 - CAST(GDATU AS NUMERIC) AS STRING)
+    SELECT CAST(99999999 - CAST(GDATU AS NUMERIC) AS STRING) AS CALDAY, TRIM(FCURR) FCURR, TRIM(TCURR) TCURR, UKURS,c.date FROM `eon-internal-bigquery.DATASET_RAW_ENVASES.ECC_PROD_TCURR`
+    left join eon-internal-bigquery.DATASET_RAW_ENVASES.CALENDAR c on c.CALDAY=CAST(99999999 - CAST(GDATU AS NUMERIC) AS STRING)
     WHERE TRIM(FCURR) IN ('USD', 'EUR', 'DKK', 'GTQ') AND TRIM(TCURR) = 'MXN' AND TRIM(KURST) = 'M'  AND    c.DATE= CAST({% date_start date_filter %} AS DATE)
 
     ) mo on   v.STAT_CURR=mo.FCURR
@@ -59,8 +59,8 @@ view: rpt_alg {
 
     union all
 
-    SELECT v.*,CAST(c.DATE AS TIMESTAMP) Fecha,c.QUARTER,c.YEAR,0 UKURS,'' TCURR, DATE_ADD(CURRENT_DATE(), INTERVAL -1 DAY) ACTUALIZACION FROM envases-analytics-eon-poc.ENVASES_REPORTING.rpt_ventas v
-    LEFT JOIN envases-analytics-eon-poc.ENVASES_REPORTING.CALENDAR c on v.CALDAY=c.CALDAY  WHERE CATEGORY in ('TOTAL MXN') and SALESORG in ( "MXF1","MXFC")
+    SELECT v.*,CAST(c.DATE AS TIMESTAMP) Fecha,c.QUARTER,c.YEAR,0 UKURS,'' TCURR, DATE_ADD(CURRENT_DATE(), INTERVAL -1 DAY) ACTUALIZACION FROM eon-internal-bigquery.DATASET_RAW_ENVASES.rpt_ventas v
+    LEFT JOIN eon-internal-bigquery.DATASET_RAW_ENVASES.CALENDAR c on v.CALDAY=c.CALDAY  WHERE CATEGORY in ('TOTAL MXN') and SALESORG in ( "MXF1","MXFC")
 
 
     ;;
@@ -112,6 +112,11 @@ view: rpt_alg {
     # sql: case when ${TABLE}.CATEGORY is null then 'Otros' else ${TABLE}.CATEGORY  end ;;
     sql:  ${TABLE}.CATEGORY ;;
 
+    link: {
+      label: "Mapa"
+      url: "https://grupoeon.cloud.looker.com/dashboards/100"
+    }
+
     html: {% if value == 'TOTAL MONEDA ORIGEN' or
                 value == 'TOTAL MXN'
 
@@ -120,6 +125,7 @@ view: rpt_alg {
       {% else %}
       <p style="">{{ rendered_value }}</p>
       {% endif %} ;;
+
 
   }
 
