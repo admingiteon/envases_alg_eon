@@ -118,6 +118,13 @@ view: rpt_alg {
     # sql: case when ${TABLE}.CATEGORY is null then 'Otros' else ${TABLE}.CATEGORY  end ;;
     sql:  ${TABLE}.CATEGORY ;;
 
+    drill_fields: [Material_Group,bill_qty]
+
+    link: {
+      label: "Grupo Material"
+      url: "https://grupoeon.cloud.looker.com/dashboards/100"
+    }
+
     html: {% if value == 'TOTAL MONEDA ORIGEN' or
                 value == 'TOTAL MXN'
 
@@ -126,11 +133,6 @@ view: rpt_alg {
       {% else %}
       <p style="">{{ rendered_value }}</p>
       {% endif %} ;;
-
-    link: {
-      label: "Grupo Material"
-      url: "https://grupoeon.cloud.looker.com/dashboards/100"
-    }
 
   }
 
