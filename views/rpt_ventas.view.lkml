@@ -310,6 +310,12 @@ WHERE CATEGORY='TOTAL MONEDA ORIGEN' AND r.REGION = 'Europa'
   dimension: matl_group {
     type: string
     sql: ${TABLE}.MATL_GROUP ;;
+
+    link: {
+      label: "Cliente"
+      url: "https://grupoeon.cloud.looker.com/dashboards/103?&Período={{ _filters['rpt_ventas.date_filter'] | url_encode }}&Category={{ _filters['rpt_ventas.category'] | url_encode}}&Matl%20Group={{ rpt_ventas.matl_group._value | url_encode}}"
+
+    }
   }
 
   dimension: bill_qty {
@@ -395,9 +401,12 @@ WHERE CATEGORY='TOTAL MONEDA ORIGEN' AND r.REGION = 'Europa'
 
     link: {
       label: "Mtl Group"
-      url: "https://grupoeon.cloud.looker.com/dashboards/100?&Período={{ _filters['rpt_ventas.date_filter'] | url_encode }}"
-      #?State={{ _filters['users.state'] | url_encode }}
-      #?&f[users.state]={{ _filters['users.state'] | url_encode }}
+      url: "https://grupoeon.cloud.looker.com/dashboards/101?&Período={{ _filters['rpt_ventas.date_filter'] | url_encode }}&Category={{ rpt_ventas.category._value | url_encode}}"
+    }
+
+    link: {
+      label: "Mtl Group2"
+      url: "https://grupoeon.cloud.looker.com/looks/237?&f[rpt_ventas.date_filter]={{ _filters['rpt_ventas.date_filter'] | url_encode }}&f[rpt_ventas.category]={{ rpt_ventas.category._value | url_encode}}"
     }
 
     html: {% if value == 'TOTAL MONEDA ORIGEN USD' or
