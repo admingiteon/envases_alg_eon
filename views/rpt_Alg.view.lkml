@@ -123,6 +123,7 @@ view: rpt_alg {
     link: {
       label: "Grupo"
       url: "https://grupoeon.cloud.looker.com/dashboards/100"
+      icon_url: "http://google.com/favicon.ico"
     }
 
     #html: {% if value == 'TOTAL MONEDA ORIGEN' or
