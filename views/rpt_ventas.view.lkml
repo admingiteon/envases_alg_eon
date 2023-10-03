@@ -311,11 +311,10 @@ WHERE CATEGORY='TOTAL MONEDA ORIGEN' AND r.REGION = 'Europa'
     type: string
     sql: ${TABLE}.MATL_GROUP ;;
 
-    link: {
-      label: "Cliente"
-      url: "https://grupoeon.cloud.looker.com/dashboards/103?&Período={{ _filters['rpt_ventas.date_filter'] | url_encode }}&Category={{ _filters['rpt_ventas.category'] | url_encode}}&Matl%20Group={{ rpt_ventas.matl_group._value | url_encode}}"
-
-    }
+    #link: {
+     # label: "Cliente"
+      #url: "https://grupoeon.cloud.looker.com/dashboards/103?&Período={{ _filters['rpt_ventas.date_filter'] | url_encode }}&Category={{ _filters['rpt_ventas.category'] | url_encode}}&Matl%20Group={{ rpt_ventas.matl_group._value | url_encode}}"
+    #}
   }
 
   dimension: matl_group_v1 {
