@@ -395,7 +395,9 @@ WHERE CATEGORY='TOTAL MONEDA ORIGEN' AND r.REGION = 'Europa'
 
     link: {
       label: "Mtl Group"
-      url: "https://grupoeon.cloud.looker.com/dashboards/100"
+      url: "https://grupoeon.cloud.looker.com/dashboards/100?&Período={{ _filters['rpt_ventas.date_filter'] | url_encode }}"
+      #?State={{ _filters['users.state'] | url_encode }}
+      #?&f[users.state]={{ _filters['users.state'] | url_encode }}
     }
 
     html: {% if value == 'TOTAL MONEDA ORIGEN USD' or
