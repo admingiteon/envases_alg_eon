@@ -118,6 +118,11 @@ view: rpt_alg {
     # sql: case when ${TABLE}.CATEGORY is null then 'Otros' else ${TABLE}.CATEGORY  end ;;
     sql:  ${TABLE}.CATEGORY ;;
 
+    link: {
+      label: "Grupo"
+      url: "https://grupoeon.cloud.looker.com/dashboards/100"
+    }
+
     html: {% if value == 'TOTAL MONEDA ORIGEN' or
                 value == 'TOTAL MXN'
 
