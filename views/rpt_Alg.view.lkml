@@ -125,14 +125,14 @@ view: rpt_alg {
       url: "https://grupoeon.cloud.looker.com/dashboards/100"
     }
 
-    html: {% if value == 'TOTAL MONEDA ORIGEN' or
-                value == 'TOTAL MXN'
+    #html: {% if value == 'TOTAL MONEDA ORIGEN' or
+     #           value == 'TOTAL MXN'
 
-      %}
-      <p style="color: white; background-color: #5e2129; font-size:100%; text-align:left">{{ rendered_value }}</p>
-      {% else %}
-      <p style="">{{ rendered_value }}</p>
-      {% endif %} ;;
+      #%}
+      #<p style="color: white; background-color: #5e2129; font-size:100%; text-align:left">{{ rendered_value }}</p>
+      #{% else %}
+      #<p style="">{{ rendered_value }}</p>
+      #{% endif %} ;;
 
 
   }
