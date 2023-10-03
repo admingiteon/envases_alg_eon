@@ -318,6 +318,12 @@ WHERE CATEGORY='TOTAL MONEDA ORIGEN' AND r.REGION = 'Europa'
     }
   }
 
+  dimension: matl_group_v1 {
+    type: string
+    sql: ${TABLE}.MATL_GROUP ;;
+
+  }
+
   dimension: bill_qty {
     type: number
     sql: ${TABLE}.BILL_QTY ;;
@@ -408,6 +414,26 @@ WHERE CATEGORY='TOTAL MONEDA ORIGEN' AND r.REGION = 'Europa'
       label: "Mtl Group2"
       url: "https://grupoeon.cloud.looker.com/looks/237?&f[rpt_ventas.date_filter]={{ _filters['rpt_ventas.date_filter'] | url_encode }}&f[rpt_ventas.category]={{ rpt_ventas.category._value | url_encode}}"
     }
+
+    html: {% if value == 'TOTAL MONEDA ORIGEN USD' or
+                value == 'TOTAL MONEDA ORIGEN DKK' or
+                value == 'TOTAL MONEDA ORIGEN EUR' or
+                value == 'TOTAL MONEDA ORIGEN GTQ' or
+                value == 'TOTAL MONEDA ORIGEN CAD' or
+                value == 'TOTAL MXN' or
+                value == 'TOTAL USD'
+      %}
+      <p style="color: white; background-color: #5e2129; font-size:100%; text-align:left">{{ rendered_value }}</p>
+      {% else %}
+      <p style="">{{ rendered_value }}</p>
+      {% endif %} ;;
+  }
+
+  dimension: category_v1 {
+    type: string
+    # sql: case when ${TABLE}.CATEGORY is null then 'Otros' else ${TABLE}.CATEGORY  end ;;
+    sql:  ${TABLE}.CATEGORY ;;
+
 
     html: {% if value == 'TOTAL MONEDA ORIGEN USD' or
                 value == 'TOTAL MONEDA ORIGEN DKK' or
