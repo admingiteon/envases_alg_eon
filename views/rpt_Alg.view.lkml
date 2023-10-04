@@ -412,6 +412,11 @@ view: rpt_alg {
     # sql: case when ${TABLE}.CATEGORY is null then 'Otros' else ${TABLE}.CATEGORY  end ;;
     sql:  ${TABLE}.CATEGORY ;;
 
+    link: {
+      label: "Dist Chanel"
+      url: "https://grupoeon.cloud.looker.com/dashboards/108?&Período={{ _filters['rpt_alg.date_filter'] | url_encode }}&Category={{ rpt_alg.category._value | url_encode}}"
+    }
+
     html: {% if value == 'TOTAL LOCAL CURRENCY USD' or
                 value == 'TOTAL LOCAL CURRENCY DKK' or
                 value == 'TOTAL LOCAL CURRENCY EUR' or
@@ -733,6 +738,15 @@ view: rpt_alg {
 
   }
 
+
+################################################################### METRICA VACIOS ########################################################
+
+  measure: empty_value {
+    label: "empty value"
+    type: string
+    #sql: GROUP_CONCAT('') ;;
+    sql: '' ;;
+  }
 
 ################################################################### CALCULOS DIARIOS ######################################################
 
